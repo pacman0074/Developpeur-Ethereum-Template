@@ -47,7 +47,7 @@ contract Voting is Ownable {
 
     //Voting admin registers a whitelist of voters identified by their Ethereum address
     function addVoter(address _voterAddress) public onlyOwner {
-        require(currentStatus == WorkflowStatus.registrationVoters || currentStatus == WorkflowStatus.VotesTallied , "Voter registration session is over, please wait for the next voting !");
+        require(currentStatus == WorkflowStatus.registrationVoters, "Voter registration session is over, please wait for the next voting !");
         require(!whitelist[_voterAddress].isRegistered, "Voter is alrealdy registered !");
         
         //Register a new voter
